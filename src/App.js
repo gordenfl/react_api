@@ -63,7 +63,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <Header showAdd={()=> setShowAddTask(!showAddTask)}/>
+      <Header showAdd={()=> setShowAddTask(!showAddTask)} showAddTask={showAddTask}/>
       { showAddTask && <AddTask onAdd={addTask} />}
       <div style={{textAlign:"center"}}>
         
