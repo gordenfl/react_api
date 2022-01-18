@@ -1,26 +1,16 @@
 import React from "react";
-import PropTypes from 'prop-types';
-import Tasks from './Tasks';
 
+import Button from './Button';
 
-const Header = ({ tasks, onDelete, onChange}) => {
+const name = "Gordon"
+const Header = ({showAdd}) => {
     return(
-        <header>
-            <Tasks tasks={tasks} onDelete={onDelete} onChange={onChange}/>
-        </header>
+    <div>
+        <h1> Task Tracker of {name}</h1>
+        <p align="right"><Button color='green' text='Add' onClick={showAdd} /></p>
+    </div>
     )
 }
 
-Header.defaultProps =  {
-    tasks: [],
-}
 
-Header.propTypes = {
-    //title: PropTypes.string.isRequired,
-    //age: PropTypes.string,
-    tasks: PropTypes.array,
-    onDelete: PropTypes.func,
-    onChange: PropTypes.func,
-}
-
-export default Header
+export default Header;

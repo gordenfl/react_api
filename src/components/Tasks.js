@@ -1,5 +1,7 @@
 import React from "react"
 import Task from"./Task"
+import PropTypes from 'prop-types';
+
 const Tasks = ({ tasks, onDelete, onChange }) => {
     console.log(tasks)
     return (
@@ -16,4 +18,12 @@ const Tasks = ({ tasks, onDelete, onChange }) => {
 Tasks.defaultProps =  {
     tasks : {}
 }
+
+
+Tasks.propTypes = {
+    tasks: PropTypes.array.isRequired,
+    onDelete: PropTypes.func,
+    onChange: PropTypes.func,
+}
+
 export default Tasks
