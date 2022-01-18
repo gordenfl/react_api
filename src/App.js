@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
+import Foot from './components/Foot';
 
 
 
@@ -75,6 +76,7 @@ const App = () => {
         
         {tasks.length>0 ? <Tasks tasks={tasks} onDelete={deleteTask} onChange={changeTask}/> : "Nothing"}
       </div>
+      <Foot />
     </div>
   )
 }
