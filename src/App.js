@@ -8,15 +8,19 @@ import AddTask from './components/AddTask';
 import Foot from './components/Foot';
 
 
-
 const App = () => {
   const [showAddTask, setShowAddTask] = useState(false) //默认关闭
   //useState的数值在后期是不允许修改的，只有通过创建初期暴露出来的函数才能修改
   const [tasks, setTasks] = useState([])
-
+  const getServerUrl = () => {
+    //const serverIP = "18.144.86.135"
+    const serverIP = "localhost"
+    const serverPort = "5000"
+    return `http://${serverIP}:${serverPort}`+"/tasks"
+  }
   useEffect(()=> {
     const fetchTasks = async ()=> {
-      const res = await fetch("http://localhost:5000/tasks")
+      const res = await fetch(getServerUrl())
       const data = await res.json()
   
       console.log(data)
@@ -28,7 +32,7 @@ const App = () => {
   
   //add Task
   const addTask = async (taskInfo) => {
-    const res = await fetch('http://localhost:5000/tasks', 
+    const res = await fetch(getServerUrl(), 
         {
           method:"POST", 
           headers:{'Content-type':'application/json'},
@@ -42,12 +46,12 @@ const App = () => {
 
   //delete Task
   const deleteTask = async (id) => {
-    await fetch(`http://localhost:5000/tasks/${id}`, {method:'DELETE'})
+    await fetch(getServerUrl()+`/${id}`, {method:'DELETE'})
     setTasks(tasks.filter((task)=> task.id!==id)) //如果taskID不等于传进来的ID就不会调用setTasks只有不一样才set
   }
   //change reminder
   const fetchTaskToChange = async (id) => {
-    const res = await fetch(`http://localhost:5000/tasks/${id}`)
+    const res = await fetch(getServerUrl()+`/${id}`)
     return await res.json()
   }
   const changeTask = async (id) => {
@@ -55,7 +59,7 @@ const App = () => {
     console.log(task_to_change)
     const updateTask = {...task_to_change, reminder:!task_to_change.reminder}
     console.log(task_to_change)
-    const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+    const res = await fetch(getServerUrl()+`/${id}`, {
       method : "PUT",
       headers:{'Content-type':'application/json'},
       body: JSON.stringify(updateTask)

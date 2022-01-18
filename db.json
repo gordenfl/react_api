@@ -3,7 +3,7 @@
     {
       "text": "dfasdfasdf",
       "day": "asdfasdfasdfa",
-      "reminder": false,
+      "reminder": true,
       "id": 6
     },
     {
@@ -17,6 +17,12 @@
       "day": "gsfdfffffffffffffff",
       "reminder": true,
       "id": 8
+    },
+    {
+      "text": "aaaaaaaaa",
+      "day": "vvvvvvvvvvvvv",
+      "reminder": false,
+      "id": 9
     }
   ]
 }
