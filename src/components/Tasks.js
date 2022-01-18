@@ -3,7 +3,6 @@ import Task from"./Task"
 import PropTypes from 'prop-types';
 
 const Tasks = ({ tasks, onDelete, onChange }) => {
-    console.log(tasks)
     return (
         <>
         {
