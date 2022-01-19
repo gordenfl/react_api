@@ -22,8 +22,6 @@ const App = () => {
     const fetchTasks = async ()=> {
       const res = await fetch(getServerUrl())
       const data = await res.json()
-  
-      console.log(data)
       setTasks(data)
     }
     
